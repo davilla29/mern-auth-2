@@ -1,0 +1,26 @@
+{
+  "name": "mern-auth-tutorial-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon api/index.js",
+    "start": "node api/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davilla29/mern-auth-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/davilla29/mern-auth-2/issues"
+  },
+  "homepage": "https://github.com/davilla29/mern-auth-2#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
