@@ -114,7 +114,7 @@ const Profile = () => {
           onClick={() => fileRef.current.click()}
         >
           <img
-            src={currentUser.profilePicture}
+            src={formData.profilePicture || currentUser.profilePicture}
             alt="Profile"
             className="w-full h-full rounded-full object-cover border-4 border-slate-200"
           />
