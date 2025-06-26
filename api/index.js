@@ -23,16 +23,14 @@ const __dirname = path.resolve();
 
 
 app.use(express.json());
-// app.use(express.static(path.join(__dirname, "client", "dist")));
+
 
 app.use(cookieParser()); //Used to parse cookies
 
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
-// });
+
 
 if (process.env.NODE_ENV === "production") {
   // serve optimized react application as a static asset
