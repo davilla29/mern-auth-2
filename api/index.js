@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import path from "path";
 import cookieParser from "cookie-parser";
 import userRoutes from "../api/routes/user.route.js";
 import authRoutes from "../api/routes/auth.route.js";
@@ -16,13 +17,31 @@ mongoose
     console.log(err);
   });
 
+
 const app = express();
+const __dirname = path.resolve();
+
 
 app.use(express.json());
-app.use(cookieParser()); //uSed to parse cookies
+// app.use(express.static(path.join(__dirname, "client", "dist")));
+
+app.use(cookieParser()); //Used to parse cookies
 
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+// });
+
+if (process.env.NODE_ENV === "production") {
+  // serve optimized react application as a static asset
+  app.use(express.static(path.join(__dirname, "../client/dist")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client", "dist", "index.html"));
+  });
+}
 
 // Middleware to handle errors
 app.use((err, req, res, next) => {
